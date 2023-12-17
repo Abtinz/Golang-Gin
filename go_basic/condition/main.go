@@ -11,7 +11,14 @@ func main(){
 	}else if(num1 == num2){
 		fmt.Println("equal")
 	}else{
-		fmt.Print(false)
+		fmt.Println(false)
+	}
+
+	switch("Abtin"){
+		case "Abtin" : 
+			fmt.Println("hi abnzandi")
+		case "other" :
+			 fmt.Println("who are you!!!")
 	}
 
 }
