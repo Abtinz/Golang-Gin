@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main(){
-	
+
 	var name = "abtin"
 	var age = 21
 	fmt.Println(name, age)
@@ -11,6 +11,10 @@ func main(){
 	fmt.Printf("%T\n",name)
 
 	const zandi = true
+
+	//Shorthand
+	fullname := "Abtin Zandi"
+	fmt.Println(fullname)
 
 
 }
