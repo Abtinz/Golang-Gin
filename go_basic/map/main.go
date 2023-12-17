@@ -21,4 +21,8 @@ func main(){
 	delete(email , "fake")
 	fmt.Println(email)
 
+	//map and key initialing
+	code := map[string] int{"Baeca" : 1 , "Man united" : 2}
+	fmt.Println(code)
+
 }
