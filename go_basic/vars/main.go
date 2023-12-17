@@ -22,5 +22,9 @@ func main(){
 	fmt.Printf("%T\n",first_float_type)
 	fmt.Printf("%T\n",second_float_type)
 
+	//go like python
+	work, second_work := "android developer" , "Deep learning developer"
+	fmt.Println(work, second_work)
+
 
 }
