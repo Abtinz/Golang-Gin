@@ -14,4 +14,11 @@ func main(){
 	for _ , id:=range ids{
 		fmt.Printf("id: %d\n",id)
 	}
+
+	//RANGE OVER MAP
+	code := map[string] int{"Baeca" : 1 , "Man united" : 2}
+	for key , value:=range code{
+		fmt.Println( key , value)
+	}
+
 } 
