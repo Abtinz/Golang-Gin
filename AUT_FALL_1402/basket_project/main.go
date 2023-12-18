@@ -9,6 +9,7 @@ DELETE /basket/<id> (deletes the given backset)
 */
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"github.com/bradtraversy/AUT_FALL_1402/basket_project/database"
@@ -22,13 +23,14 @@ func databaseInitializer() {
 
 	//initializering and opening postgress database
 	database.InitDB()
-	defer database.CloseDB()
+	
 	//now is time to migrate our models to database
 	database.DB.AutoMigrate(&model.Basket{})
 	database.DB.AutoMigrate(&model.User{})
 }
 func main() {
 
+	fmt.Println("note: postgress password have set on your pc as root and port is 5432 if you had change it please consider and customize this section on your run!")
 	databaseInitializer()
 
 	e := echo.New()

@@ -26,20 +26,6 @@ func GenerateToken(userID uint) (string, error) {
 	return signedToken, nil
 }
 
-func ExtractToken(c echo.Context) (string, error) {
-	authHeader := c.Request().Header.Get("Authorization")
-	if authHeader == "" {
-		return "", echo.NewHTTPError(http.StatusUnauthorized, "No JWT token found")
-	}
-
-	parts := strings.Split(authHeader, " ")
-	if len(parts) != 2 || parts[0] != "Bearer" {
-		return "", echo.NewHTTPError(http.StatusUnauthorized, "Invalid authorization format")
-	}
-
-	return parts[1], nil
-}
-
 func ValidateToken(tokenString string) (*jwt.Token, error) {
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
 
@@ -53,6 +39,20 @@ func ValidateToken(tokenString string) (*jwt.Token, error) {
 	}
 
 	return token, nil
+}
+
+func ExtractToken(c echo.Context) (string, error) {
+	authHeader := c.Request().Header.Get("Authorization")
+	if authHeader == "" {
+		return "", echo.NewHTTPError(http.StatusUnauthorized, "No JWT token found")
+	}
+
+	parts := strings.Split(authHeader, " ")
+	if len(parts) != 2 || parts[0] != "Bearer" {
+		return "", echo.NewHTTPError(http.StatusUnauthorized, "Invalid authorization format")
+	}
+
+	return parts[1], nil
 }
 
 /* this function will return user uuid which is decoded in token with address and others

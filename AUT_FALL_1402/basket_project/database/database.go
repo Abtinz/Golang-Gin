@@ -13,7 +13,8 @@ var DB *gorm.DB
 
 func InitDB() *gorm.DB {
 	//dsn is set just same as gorm.io documentation, no need to ssl mode ...
-	dsn := "host=localhost user=postgres password=abtin dbname=postgres port=5432 sslmode=disable"
+	//note: password is set on your pc as root if you had change it please consider and customize this section on your run!
+	dsn := "host=localhost user=postgres password=root dbname=postgres port=5432 sslmode=disable"
 
 	opened_database, error := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
